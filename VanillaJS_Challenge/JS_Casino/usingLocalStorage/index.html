@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>JS 카지노</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>랜덤 숫자 게임</h1>
+    <div>
+        <h3 class="js-title">
+            0과 <input id="maxNumber" type="number" min="0" /> 사이의 숫자를 생성하세요.
+        </h3>
+    </div>
+    <form id="js-guess">
+        <label>숫자를 추측하세요:</label>
+        <input type="number" id="guessInput" min="0" />
+        <button type="submit">플레이!</button>
+    </form>
+    <div id="js-result">
+        <span></span>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
