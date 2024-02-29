@@ -19,10 +19,17 @@ const colors = [
   "#ff3f34",
 ];
 
-document.body.style.background = `linear-gradient(to left top, ${colors[Math.floor(Math.random() * colors.length)]}, ${colors[Math.floor(Math.random() * colors.length)]})`;
+document.body.style.background = `linear-gradient(to left top, ${
+  colors[Math.floor(Math.random() * colors.length)]
+}, ${colors[Math.floor(Math.random() * colors.length)]})`;
 
 function paintBg() {
-    document.body.style.background = `linear-gradient(to left top, ${colors[Math.floor(Math.random() * colors.length)]}, ${colors[Math.floor(Math.random() * colors.length)]})`;
+  const a = colors[Math.floor(Math.random() * colors.length)];
+  const b = colors[Math.floor(Math.random() * colors.length)];
+  if (a === b) {
+    return handleClick();
+  }
+  document.body.style.background = `linear-gradient(to left, ${a}, ${b})`;
 }
 
 const button = document.querySelector("button");
