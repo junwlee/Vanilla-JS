@@ -52,4 +52,4 @@ function showQuotes() {
 }
 
 showQuotes();
-setInterval(showQuotes, 1000);
+setInterval(showQuotes, 5000);
