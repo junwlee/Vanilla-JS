@@ -10,13 +10,17 @@ function savingToDos() {
 }
 
 function todoDelete(event) {
-  event.target.parentElement.remove();
+  const li = event.target.parentElement;
+  li.remove();
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+  savingToDos();
 }
 
 function paintTodo(newTodo) {
   const li = document.createElement("li");
+  li.id = newTodo.id;
   const span = document.createElement("span");
-  span.innerText = newTodo;
+  span.innerText = newTodo.text;
   const button = document.createElement("button");
   button.innerText = "❌";
   button.addEventListener("click", todoDelete);
@@ -27,10 +31,14 @@ function paintTodo(newTodo) {
 
 function handleSubmit(event) {
   event.preventDefault();
-  const newInput = toDoInput.value;
+  const newTodo = toDoInput.value;
   toDoInput.value = "";
-  paintTodo(newInput);
-  toDos.push(newInput);
+  const newToDoObj = {
+    text: newTodo,
+    id: Date.now() // 각각의 li를 구별
+  }
+  toDos.push(newToDoObj);
+  paintTodo(newToDoObj); // id를 사용하기 위해 객체를 전달
   savingToDos();
 }
 
